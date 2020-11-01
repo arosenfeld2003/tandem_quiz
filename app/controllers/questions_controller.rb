@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
     @active_answer = Answer.get_active_answer(params[:answer])
     @correct_answer = Answer.get_correct_answer(@question)
     @is_correct = (@active_answer == @correct_answer) ? 'Correct!' : 'Incorrect'
-    game = Game.where(active: true).first
-    Game.update_score(game, (@active_answer == @correct_answer))
+    @game = Game.where(active: true).first
+    Game.update_score(@game, (@active_answer == @correct_answer))
   end
 
   def get_active_question

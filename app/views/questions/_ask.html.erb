@@ -1,26 +1,29 @@
-<div>
-  <p><%= game.player %><p>
-
-  <div>
-    <p>Question: <%= question.value %> </p>
-  </div>
-
-  <div id="submit">
-    <% # randomize the order of the answer choices %>
-    <% random = answers.sample(answers.length) %>
-    <%= form_with url: questions_answer_question_path, local: true do |f| %>
-      <% random.each_with_index do |answer, index| %>
-        <%= radio_button_tag(:answer, answer.value) %>
-        <%= label_tag(:"#{index}", answer.value) %>
-        <br>
-      <% end %>
-      <% f.submit "Submit", type: :submit %>
-    <% end %>
-  </div>
-
-  <div>
-    <h3> Score: <%= game.score %> </h3>
-    <h5> Round:  <%= game.level %>, Question: <%= game.question_count %></h3>
+<div class="container-fluid col-md-4 text-center">
+  <% level = (@game.level == 0) ? 'BONUS ROUND' : game.level %>
+  <h3> Score: <%= game.score %> </h3>
+  <h5> Round:  <%= level %>, Question: <%= game.question_count %></h3>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><%= question.value %></h3>
+      </div>
+      <div class="modal-body">
+        <div class="col-xs-3 5"> </div>
+        <div class="quiz" id="quiz">
+          <label class="element-animation1 btn btn-lg btn-dark btn-block">
+            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+            <% random = answers.sample(answers.length) %>
+            <%= form_with url: questions_answer_question_path, local: true do |f| %>
+              <% random.each_with_index do |answer, index| %>
+                <%= radio_button_tag(:answer, answer.value) %>
+                <%= label_tag(:"#{index}", answer.value) %>
+                <br>
+              <% end %>
+              <%= f.submit "Submit", type: :submit %>
+            <% end %>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-

@@ -1,11 +1,13 @@
-<h1>New Game</h1>
-<%= form_with scope: :game, url: games_play_path, local: true do |form| %>
-  <p>
-    <%= form.label :"Player Initials" %><br>
-    <%= form.text_field :player %>
-  </p>
+<div class="container-fluid col-md-4 text-center">
+  <h1><kbd>New Game</kbd></h1>
+  <%= form_with scope: :game, url: games_play_path, local: true do |form| %>
+    <p>
+      <%= form.label :"Playername:" %><br>
+      <%= form.text_field :player %>
+    </p>
 
-  <p>
-    <%= form.submit "Start" %>
-  </p>
-<% end %>
+    <p>
+      <%= form.submit "Start", class: "btn btn-success" %>
+    </p>
+  <% end %>
+</div>

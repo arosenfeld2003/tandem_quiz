@@ -1,4 +1,13 @@
-<h1>Tandem Trivia Quiz</h1>
-<p>Welcome, Description, Buttons to begin playing</p>
-
-<%= link_to "New Game", games_start_path, class: 'button' %>
+<div class="container-fluid col-md-4 text-center">
+  <h1><kbd>Tandem Trivia Quiz</kbd></h1>
+  <p>@Alex Rosenfeld 2020</p>
+  <h5><kbd>Rules<kbd></h5>
+  <div>
+    <p><%= @rounds %> Rounds of 10 questions</p>
+    <% questions = (@bonus == 1) ? 'question' : 'questions' %>
+    <% p questions %>
+    <p>Bonus round of <%= @bonus%> <%= questions %></p>
+    <p>10 points per question</p>
+  <div>
+  <%= link_to "New Game", games_start_path, class: "btn btn-success" %>
+</div>
