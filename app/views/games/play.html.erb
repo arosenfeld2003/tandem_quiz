@@ -1,9 +1,15 @@
+<% if @game.question_count % 10 == 1 %>
+  <%= render :partial => 'games/next_level', :locals => {:game => @game} %>
+<% end %>
+
 <% if @question == false %>
   <%= render :partial => 'games/gameover', :locals => {:game => @game} %>
 <% else %>
   <%= render :partial => 'questions/ask', :locals => {:game => @game, :question => @question, :answers => @answers} %>
 <% end %>
-<div class="container-fluid col-md-4 text-center mt-4">
+<div class="container-fluid col-md-4 text-center mt-5">
+  <div class="row mt-5"></div>
+  <div class="row mt-5"></div>
   <%= link_to "New Game", welcome_index_path, class: "btn btn-success" %>
 </div>
 
