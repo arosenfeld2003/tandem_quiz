@@ -3,4 +3,7 @@
 <% else %>
   <%= render :partial => 'questions/ask', :locals => {:game => @game, :question => @question, :answers => @answers} %>
 <% end %>
+<div class="container-fluid col-md-4 text-center mt-4">
+  <%= link_to "New Game", welcome_index_path, class: "btn btn-success" %>
+</div>
 
