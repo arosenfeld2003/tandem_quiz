@@ -14,14 +14,18 @@ class GamesController < ApplicationController
   def play
     @game = Game.where(active: true).first || Game.start(params[:game][:player])
     Game.update_level(@game)
-    Game.update_question_count(@game)
+    if request.post?
+      @question = Question.get_new_question
+      if @question != false
+        @answers = Answer.get_answers_for_question(@question)
+      end
+      Game.update_question_count(@game)
+    end
   end
 
   def set_question
-    @question = Question.get_new_question
-    if @question != false
-      @answers = Answer.get_answers_for_question(@question)
-    end
+    @question = Question.find_by(active: true) || Question.get_new_question
+    @answers = Answer.get_answers_for_question(@question)
   end
 
 end
