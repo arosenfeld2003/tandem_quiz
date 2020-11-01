@@ -1,0 +1,6 @@
+<% if @question == false %>
+  <%= render :partial => 'games/gameover', :locals => {:game => @game} %>
+<% else %>
+  <%= render :partial => 'questions/ask', :locals => {:game => @game, :question => @question, :answers => @answers} %>
+<% end %>
+

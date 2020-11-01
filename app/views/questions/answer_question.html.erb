@@ -1,0 +1,8 @@
+<p>Question: <%= @question.value %><p>
+<p>Correct Answer: <%= @correct_answer.value %></p>
+<p>User Answer: <%= @active_answer.value %></p>
+<p>Result: <%= @is_correct %></p>
+
+<div>
+  <%= link_to 'Next Question', games_play_path, class: "btn btn-default" %>
+</div>

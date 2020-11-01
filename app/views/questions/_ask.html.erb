@@ -1,0 +1,26 @@
+<div>
+  <p><%= game.player %><p>
+
+  <div>
+    <p>Question: <%= question.value %> </p>
+  </div>
+
+  <div id="submit">
+    <% # randomize the order of the answer choices %>
+    <% random = answers.sample(answers.length) %>
+    <%= form_with url: questions_answer_question_path, local: true do |f| %>
+      <% random.each_with_index do |answer, index| %>
+        <%= radio_button_tag(:answer, answer.value) %>
+        <%= label_tag(:"#{index}", answer.value) %>
+        <br>
+      <% end %>
+      <% f.submit "Submit", type: :submit %>
+    <% end %>
+  </div>
+
+  <div>
+    <h3> Score: <%= game.score %> </h3>
+    <h5> Round:  <%= game.level %>, Question: <%= game.question_count %></h3>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<h1>New Game</h1>
+<%= form_with scope: :game, url: games_play_path, local: true do |form| %>
+  <p>
+    <%= form.label :"Player Initials" %><br>
+    <%= form.text_field :player %>
+  </p>
+
+  <p>
+    <%= form.submit "Start" %>
+  </p>
+<% end %>
