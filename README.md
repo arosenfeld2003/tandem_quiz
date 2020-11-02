@@ -11,6 +11,8 @@ The trivia questions are included as a seed file, and must be loaded into the da
 
 The app is specifically designed so that the seed file could be replaced by another JSON seed file (as long as data is in the same format).  During gameplay, questions from the seed file are asked in random order.  
 
+Each round of trivia will have 10 questions, and any additional questions from the seed file will be asked in a 'Bonus Round'.  This will be assigned dynamically based on the number of questions in the seed file.  For the provided seed file with 21 questions, there will be two rounds and one bonus round.
+
 To get started, run these commands from terminal:
 
 - git clone https://github.com/arosenfeld2003/tandem_quiz.git
