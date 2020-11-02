@@ -20,7 +20,7 @@ To get started, run these commands from terminal:
 - rails db:create
 - rails db:migrate
 - rails db:seed
-- rails s
+- rails server
 
 Have fun at Trivia Night!
 
