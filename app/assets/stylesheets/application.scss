@@ -16,3 +16,20 @@
  */
 
  @import "bootstrap/scss/bootstrap.scss";
+
+ body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url('trivia_two.jpg');;
+
+  /* Half height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

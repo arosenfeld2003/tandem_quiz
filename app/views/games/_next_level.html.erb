@@ -1,3 +1,8 @@
 <div class="alert alert-success" role="alert">
-  <h3>Starting Next Round!</h3>
+  <% level = @game.level == 0  ? 'BONUS' : @game.level %>
+  <% if level == 'BONUS' %>
+    <h3>BONUS ROUND!<h3>
+  <% else %>
+    <h3>Starting Round <%= level%>!</h3>
+  <% end %>
 </div>

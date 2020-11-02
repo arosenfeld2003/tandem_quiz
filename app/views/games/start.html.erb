@@ -2,8 +2,8 @@
   <h1><kbd>New Game</kbd></h1>
   <%= form_with scope: :game, url: games_play_path, local: true do |form| %>
     <p>
-      <%= form.label :"Playername:" %><br>
-      <%= form.text_field :player %>
+      <kbd><%= form.label :"Playername:" %></kbd><br>
+      <%= form.text_field :player, required: true %>
     </p>
 
     <p>

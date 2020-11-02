@@ -2,7 +2,7 @@
   <%= render :partial => 'games/next_level', :locals => {:game => @game} %>
 <% end %>
 
-<% if @question == false %>
+<% if @game.questions_remaining == 0 %>
   <%= render :partial => 'games/gameover', :locals => {:game => @game} %>
 <% else %>
   <%= render :partial => 'questions/ask', :locals => {:game => @game, :question => @question, :answers => @answers} %>

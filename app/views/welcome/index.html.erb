@@ -5,9 +5,8 @@
   <div>
     <p><%= @rounds %> Rounds of 10 questions</p>
     <% questions = (@bonus == 1) ? 'question' : 'questions' %>
-    <% p questions %>
     <p>Bonus round of <%= @bonus%> <%= questions %></p>
-    <p>10 points per question</p>
+    <p>Each round, questions are worth an extra 10 points</p>
   <div>
   <%= link_to "New Game", games_start_path, class: "btn btn-success" %>
 </div>

@@ -1,21 +1,22 @@
 <div class="container-fluid col-md-4 text-center">
-  <% level = (@game.level == 0) ? 'BONUS ROUND' : game.level %>
-  <h3> Score: <%= game.score %> </h3>
-  <h5> Round:  <%= level %>, Question: <%= game.question_count %></h3>
+  <h3><kbd>Score: <%= @game.score %></kbd></h3>
+  <% level = @game.level == 0 ? 'BONUS' : @game.level %>
+  <h5><kbd>Round:  <%= level %>, Question: <%= @game.question_count %></kbd></h3>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <% question = Question.where("active = ?", true)[0] %>
         <h3><%= question.value %></h3>
       </div>
       <div class="modal-body">
         <div class="col-xs-3 5"> </div>
         <div class="quiz" id="quiz">
           <label class="element-animation1 btn btn-lg btn-dark btn-block">
-            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-            <% random = answers.sample(answers.length) %>
+            <span class="btn-label"></span>
+            <% random = @answers.sample(answers.length) %>
             <%= form_with url: questions_answer_question_path, local: true do |f| %>
               <% random.each_with_index do |answer, index| %>
-                <%= radio_button_tag(:answer, answer.value) %>
+                <%= radio_button_tag(:answer, answer.value, :checked => true) %>
                 <%= label_tag(:"#{index}", answer.value) %>
                 <br>
               <% end %>

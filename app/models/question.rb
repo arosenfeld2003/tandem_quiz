@@ -5,7 +5,13 @@ class Question < ApplicationRecord
   end
 
   def self.get_new_question
+    previous_question = Question.where("active = ?", true)[0]
+    if previous_question
+      previous_question.asked = true
+      previous_question.save
+    end
     available_questions = Question.where(asked: false)
+    # return false if there are no more questions
     if available_questions.to_a.length == 0
       return false
     end
@@ -13,13 +19,9 @@ class Question < ApplicationRecord
     Answer.update_all(:active => false)
     new_question = available_questions.sample
     current_question = Question.where("id = ?", new_question.id).first
-    current_question.update(:asked => true, :active => true)
+    current_question.active = true
+    current_question.save
     return current_question
   end
 
-  def self.check_answer(answer)
-    answer = Answer.where("value = ?", answer).first
-    answer.update(:active => true)
-    return answer.correct
-  end
 end
