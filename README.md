@@ -7,7 +7,7 @@ To get this fun quiz game up and running, be sure you have Ruby and Rails instal
 
 * Database creation:
 
-The trivia questions are included as a seed file, and must be loaded into the database before you can play.  This app is designed to run on SQLite (because it's included with Ruby).
+The trivia questions are included as a seed file, and must be loaded into the database before you can play.  This app is designed to run with SQLite (standard for Rails).
 
 The app is specifically designed so that the seed file could be replaced by another JSON seed file (as long as data is in the same format).  During gameplay, questions from the seed file are asked in random order.  
 
